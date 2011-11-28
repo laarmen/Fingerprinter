@@ -1,0 +1,52 @@
+Source: lastfmfp
+Priority: optional
+Maintainer: Simon Chopin <chopin.simon@gmail.com>
+Build-Depends: 
+ debhelper (>= 8.0.0),
+ cmake,
+ libtag1-dev,
+ libsamplerate0-dev,
+ libfftw3-dev,
+ libmad0-dev,
+ libcurl4-gnutls-dev
+Standards-Version: 3.9.2
+Section: libs
+Homepage: http://github.com/lastfm/Fingerprinter/
+Vcs-Git: git://git.debian.org/collab-maint/lastfmfp.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/lastfmfp.git;a=summary
+
+Package: liblastfmfp1
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Last.fm audio fingerprinting library
+ This library has been developed by Last.fm to calculate the audio fingerprint
+ of a PCM flux and return it in a format compatible with the Last.fm Webservice
+ API.
+
+Package: liblastfmfp1-dev
+Section: libdevel
+Architecture: any
+Depends: liblastfmfp1 (= ${binary:Version}), ${misc:Depends}
+Description: Last.fm audio fingerprinting library - Development files 
+ This library has been developed by Last.fm to calculate the audio fingerprint
+ of a PCM flux and return it in a format compatible with the Last.fm Webservice
+ API.
+ .
+ This package contains the library headers and the static binary.
+
+Package: lastfmfpclient
+Section: utils
+Architecture: any
+Depends:
+ liblastfmfp1 (= ${binary:Version}),
+ ${shlibs:Depends},
+ ${misc:Depends}
+Description: Last.fm audio fingerprinting client
+ The lastfmfp library has been developed by Last.fm to calculate the audio
+ fingerprint of a PCM flux and return it in a format compatible with the Last.fm
+ Webservice API.
+ .
+ This package contains a command-line application using this library to query
+ the Last.fm metada corresponding to a given track.
+
