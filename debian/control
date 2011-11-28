@@ -4,6 +4,7 @@ Maintainer: Simon Chopin <chopin.simon@gmail.com>
 Build-Depends: 
  debhelper (>= 8.0.0),
  cmake,
+ python-docutils,
  libtag1-dev,
  libsamplerate0-dev,
  libfftw3-dev,
